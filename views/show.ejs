@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= trail.name %> Details</title>
+</head>
+<body>
+    <h1><%= trail.name %></h1>
+    <p><strong>Location:</strong> <%= trail.location %></p>
+    <p><strong>Difficulty:</strong> <%= trail.difficulty %></p>
+    <p><strong>Distance:</strong> <%= trail.distance %> miles</p>
+    <p><strong>Elevation Gain:</strong> <%= trail.elevationGain %> feet</p>
+    <p><strong>Description:</strong> <%= trail.description %></p>
+    <% if (trail.imageUrl) { %>
+        <img src="<%= trail.imageUrl %>" alt="<%= trail.name %> image" style="width: 300px;">
+    <% } %>
+    <br>
+    <a href="/trails">Back to all trails</a>
+    <form action="/trails/<%= trail._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this trail?');">
+        <button type="submit">Delete Trail</button>
+    </form>
+    
+    
+</body>
+</html>

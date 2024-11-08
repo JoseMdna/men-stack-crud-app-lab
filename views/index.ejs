@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiking Trails</title>
+</head>
+<body>
+    <h1>Hiking Trails</h1>
+    <a href="/trails/new">Add New Trail</a>
+    <ul>
+        <% trails.forEach(trail => { %>
+            <li>
+                <a href="/trails/<%= trail._id %>"><%= trail.name %></a> - <%= trail.location %>
+            </li>
+        <% }) %>
+    </ul>
+    <ul>
+        <% trails.forEach(trail => { %>
+            <li>
+                <a href="/trails/<%= trail._id %>"><%= trail.name %></a>
+                <a href="/trails/<%= trail._id %>/edit">Edit</a> 
+            </li>
+        <% }) %>
+    </ul>
+    
+</body>
+</html>
